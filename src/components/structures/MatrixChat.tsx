@@ -115,6 +115,7 @@ import CallHandler from "../../CallHandler";
 import { showSpaceInvite } from "../../utils/space";
 import { ActionPayload } from "../../dispatcher/payloads";
 import { SummarizedNotificationState } from "../../stores/notifications/SummarizedNotificationState";
+import AccessibleButton from "../views/elements/AccessibleButton";
 
 /** constants for MatrixChat.state.view */
 export enum Views {
