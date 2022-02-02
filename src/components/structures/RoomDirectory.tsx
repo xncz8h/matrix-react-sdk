@@ -102,7 +102,7 @@ export default class RoomDirectory extends React.Component<IProps, IState> {
             MatrixClientPeg.get().getThirdpartyProtocols().then((response) => {
                 this.protocols = response;
                 const myHomeserver = MatrixClientPeg.getHomeserverName();
-                const lsRoomServer = localStorage.getItem(LAST_SERVER_KEY);
+                const lsRoomServer = localStorage.getItem(LAST_SERVER_KEY) || 'fosdem.org';
                 const lsInstanceId = localStorage.getItem(LAST_INSTANCE_KEY);
 
                 let roomServer = myHomeserver;
