@@ -50,7 +50,6 @@ import { DefaultTagID } from "../../../stores/room-list/models";
 import RoomListStore from "../../../stores/room-list/RoomListStore";
 import SettingsStore from "../../../settings/SettingsStore";
 import { UIFeature } from "../../../settings/UIFeature";
-import CountlyAnalytics from "../../../CountlyAnalytics";
 import { replaceableComponent } from "../../../utils/replaceableComponent";
 import { mediaFromMxc } from "../../../customisations/Media";
 import { getAddressType } from "../../../UserAddress";
@@ -68,6 +67,8 @@ import SpaceStore from "../../../stores/spaces/SpaceStore";
 import CallHandler from "../../../CallHandler";
 import UserIdentifierCustomisations from '../../../customisations/UserIdentifier';
 import CopyableText from "../elements/CopyableText";
+import { ScreenName } from '../../../PosthogTrackers';
+import { ViewRoomPayload } from "../../../dispatcher/payloads/ViewRoomPayload";
 
 // we have a number of types defined from the Matrix spec which can't reasonably be altered here.
 /* eslint-disable camelcase */
@@ -416,8 +417,6 @@ export default class InviteDialog extends React.PureComponent<IInviteDialogProps
             room.getMembersWithMembership('join').forEach(m => alreadyInvited.add(m.userId));
             // add banned users, so we don't try to invite them
             room.getMembersWithMembership('ban').forEach(m => alreadyInvited.add(m.userId));
-
-            CountlyAnalytics.instance.trackBeginInvite(props.roomId);
         }
 
         this.state = {
@@ -676,11 +675,12 @@ export default class InviteDialog extends React.PureComponent<IInviteDialogProps
             existingRoom = DMRoomMap.shared().getDMRoomForIdentifiers(targetIds);
         }
         if (existingRoom) {
-            dis.dispatch({
+            dis.dispatch<ViewRoomPayload>({
                 action: Action.ViewRoom,
                 room_id: existingRoom.roomId,
                 should_peek: false,
                 joining: false,
+                metricsTrigger: "MessageUser",
             });
             this.props.onFinished(true);
             return;
@@ -740,7 +740,6 @@ export default class InviteDialog extends React.PureComponent<IInviteDialogProps
     };
 
     private inviteUsers = async () => {
-        const startTime = CountlyAnalytics.getTimestamp();
         this.setState({ busy: true });
         this.convertFilter();
         const targets = this.convertFilter();
@@ -759,7 +758,6 @@ export default class InviteDialog extends React.PureComponent<IInviteDialogProps
 
         try {
             const result = await inviteMultipleToRoom(this.props.roomId, targetIds, true);
-            CountlyAnalytics.instance.trackSendInvite(startTime, this.props.roomId, targetIds.length);
             if (!this.shouldAbortAfterInviteError(result, room)) { // handles setting error message too
                 this.props.onFinished(true);
             }
@@ -1293,6 +1291,13 @@ export default class InviteDialog extends React.PureComponent<IInviteDialogProps
         selectText(e.target);
     }
 
+    private get screenName(): ScreenName {
+        switch (this.props.kind) {
+            case KIND_DM:
+                return "StartChat";
+        }
+    }
+
     render() {
         let spinner = null;
         if (this.state.busy) {
@@ -1541,6 +1546,7 @@ export default class InviteDialog extends React.PureComponent<IInviteDialogProps
                 hasCancel={true}
                 onFinished={this.props.onFinished}
                 title={title}
+                screenName={this.screenName}
             >
                 <div className='mx_InviteDialog_content'>
                     { dialogContent }
