@@ -20,7 +20,6 @@ import { MatrixEvent } from 'matrix-js-sdk/src/models/event';
 import dis from '../../../dispatcher/dispatcher';
 import { _t } from '../../../languageHandler';
 import { RoomPermalinkCreator } from "../../../utils/permalinks/Permalinks";
-import { replaceableComponent } from "../../../utils/replaceableComponent";
 import ReplyTile from './ReplyTile';
 import RoomContext, { TimelineRenderingType } from '../../../contexts/RoomContext';
 import CancelSvg from '../../../../res/img/cancel.svg';
@@ -38,7 +37,6 @@ interface IProps {
     replyToEvent: MatrixEvent;
 }
 
-@replaceableComponent("views.rooms.ReplyPreview")
 export default class ReplyPreview extends React.Component<IProps> {
     public static contextType = RoomContext;
 

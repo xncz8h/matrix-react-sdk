@@ -23,7 +23,6 @@ import Flair from '../elements/Flair';
 import FlairStore from '../../../stores/FlairStore';
 import { getUserNameColorClass } from '../../../utils/FormattingUtils';
 import MatrixClientContext from "../../../contexts/MatrixClientContext";
-import { replaceableComponent } from "../../../utils/replaceableComponent";
 import UserIdentifier from '../../../customisations/UserIdentifier';
 import RoomContext, { TimelineRenderingType } from '../../../contexts/RoomContext';
 import SettingsStore from "../../../settings/SettingsStore";
@@ -40,7 +39,6 @@ interface IState {
     relatedGroups: string[];
 }
 
-@replaceableComponent("views.messages.SenderProfile")
 export default class SenderProfile extends React.Component<IProps, IState> {
     static contextType = MatrixClientContext;
     public context!: React.ContextType<typeof MatrixClientContext>;

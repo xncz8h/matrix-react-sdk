@@ -25,13 +25,11 @@ import { showGroupInviteDialog } from '../../../GroupAddressPicker';
 import AccessibleButton from '../elements/AccessibleButton';
 import { RightPanelPhases } from '../../../stores/right-panel/RightPanelStorePhases';
 import AutoHideScrollbar from "../../structures/AutoHideScrollbar";
-import { replaceableComponent } from "../../../utils/replaceableComponent";
 import RightPanelStore from '../../../stores/right-panel/RightPanelStore';
 import EllipsisSvg from '../../../../res/img/ellipsis.svg';
 
 const INITIAL_LOAD_NUM_MEMBERS = 30;
 
-@replaceableComponent("views.groups.GroupMemberList")
 export default class GroupMemberList extends React.Component {
     static propTypes = {
         groupId: PropTypes.string.isRequired,

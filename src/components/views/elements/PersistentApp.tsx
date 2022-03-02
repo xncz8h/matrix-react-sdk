@@ -19,7 +19,6 @@ import React, { ContextType } from 'react';
 
 import ActiveWidgetStore from '../../../stores/ActiveWidgetStore';
 import WidgetUtils from '../../../utils/WidgetUtils';
-import { replaceableComponent } from "../../../utils/replaceableComponent";
 import AppTile from "./AppTile";
 import { IApp } from '../../../stores/WidgetStore';
 import MatrixClientContext from "../../../contexts/MatrixClientContext";
@@ -29,7 +28,6 @@ interface IProps {
     pointerEvents?: string;
 }
 
-@replaceableComponent("views.elements.PersistentApp")
 export default class PersistentApp extends React.Component<IProps> {
     public static contextType = MatrixClientContext;
     context: ContextType<typeof MatrixClientContext>;

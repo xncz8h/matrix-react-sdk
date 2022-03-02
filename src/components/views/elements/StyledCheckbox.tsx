@@ -18,7 +18,6 @@ import React from "react";
 import { randomString } from "matrix-js-sdk/src/randomstring";
 import classnames from 'classnames';
 
-import { replaceableComponent } from "../../../utils/replaceableComponent";
 
 export enum CheckboxStyle {
     Solid = "solid",
@@ -34,7 +33,6 @@ interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
 interface IState {
 }
 
-@replaceableComponent("views.elements.StyledCheckbox")
 export default class StyledCheckbox extends React.PureComponent<IProps, IState> {
     private id: string;
 

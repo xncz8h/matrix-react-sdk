@@ -22,7 +22,6 @@ import { ClientEvent, IClientWellKnown } from 'matrix-js-sdk/src/client';
 
 import DialogButtons from "../elements/DialogButtons";
 import { _t } from '../../../languageHandler';
-import { replaceableComponent } from "../../../utils/replaceableComponent";
 import MemberAvatar from '../avatars/MemberAvatar';
 import MatrixClientContext from '../../../contexts/MatrixClientContext';
 import Modal from '../../../Modal';
@@ -49,7 +48,6 @@ interface IState {
  * searching for the commit that remove manualPosition from this file.
  */
 
-@replaceableComponent("views.location.LocationPicker")
 class LocationPicker extends React.Component<ILocationPickerProps, IState> {
     public static contextType = MatrixClientContext;
     public context!: React.ContextType<typeof MatrixClientContext>;

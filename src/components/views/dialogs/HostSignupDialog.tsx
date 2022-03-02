@@ -33,7 +33,6 @@ import {
     IPostmessageResponseData,
     PostmessageAction,
 } from "./HostSignupDialogTypes";
-import { replaceableComponent } from "../../../utils/replaceableComponent";
 
 const HOST_SIGNUP_KEY = "host_signup";
 
@@ -45,7 +44,6 @@ interface IState {
     minimized: boolean;
 }
 
-@replaceableComponent("views.dialogs.HostSignupDialog")
 export default class HostSignupDialog extends React.PureComponent<IProps, IState> {
     private iframeRef: React.RefObject<HTMLIFrameElement> = React.createRef();
     private readonly config: IHostSignupConfig;

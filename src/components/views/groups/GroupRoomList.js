@@ -22,12 +22,10 @@ import GroupStore from '../../../stores/GroupStore';
 import { showGroupAddRoomDialog } from '../../../GroupAddressPicker';
 import AccessibleButton from '../elements/AccessibleButton';
 import AutoHideScrollbar from "../../structures/AutoHideScrollbar";
-import { replaceableComponent } from "../../../utils/replaceableComponent";
 import EllipsisSvg from '../../../../res/img/ellipsis.svg';
 
 const INITIAL_LOAD_NUM_ROOMS = 30;
 
-@replaceableComponent("views.groups.GroupRoomList")
 export default class GroupRoomList extends React.Component {
     static propTypes = {
         groupId: PropTypes.string.isRequired,

@@ -41,7 +41,6 @@ import { makeGroupPermalink, makeUserPermalink } from "../../utils/permalinks/Pe
 import RightPanelStore from "../../stores/right-panel/RightPanelStore";
 import AutoHideScrollbar from "./AutoHideScrollbar";
 import { mediaFromMxc } from "../../customisations/Media";
-import { replaceableComponent } from "../../utils/replaceableComponent";
 import { createSpaceFromCommunity } from "../../utils/space";
 import { Action } from "../../dispatcher/actions";
 import { RightPanelPhases } from "../../stores/right-panel/RightPanelStorePhases";
@@ -412,7 +411,6 @@ const GROUP_JOINPOLICY_INVITE = "invite";
 
 const UPGRADE_NOTICE_LS_KEY = "mx_hide_community_upgrade_notice";
 
-@replaceableComponent("structures.GroupView")
 export default class GroupView extends React.Component {
     static propTypes = {
         groupId: PropTypes.string.isRequired,

@@ -42,7 +42,6 @@ import { SETTINGS } from "../../../settings/Settings";
 import SettingsStore, { LEVEL_ORDER } from "../../../settings/SettingsStore";
 import Modal from "../../../Modal";
 import ErrorDialog from "./ErrorDialog";
-import { replaceableComponent } from "../../../utils/replaceableComponent";
 import { SettingLevel } from '../../../settings/SettingLevel';
 import BaseDialog from "./BaseDialog";
 import TruncatedList from "../elements/TruncatedList";
@@ -1266,7 +1265,6 @@ interface IState {
     mode?: DevtoolsDialogEntry;
 }
 
-@replaceableComponent("views.dialogs.DevtoolsDialog")
 export default class DevtoolsDialog extends React.PureComponent<IProps, IState> {
     constructor(props) {
         super(props);

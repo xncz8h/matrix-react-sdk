@@ -28,7 +28,6 @@ import MatrixClientContext from "../../contexts/MatrixClientContext";
 import AutoHideScrollbar from "./AutoHideScrollbar";
 import SettingsStore from "../../settings/SettingsStore";
 import UserTagTile from "../views/elements/UserTagTile";
-import { replaceableComponent } from "../../utils/replaceableComponent";
 import UIStore from "../../stores/UIStore";
 import DNDTagTile from "../views/elements/DNDTagTile";
 import ActionButton from "../views/elements/ActionButton";
@@ -49,7 +48,6 @@ interface IGroupFilterPanelState {
     selectedTags: SelectedTagsTemporaryType;
 }
 
-@replaceableComponent("structures.GroupFilterPanel")
 class GroupFilterPanel extends React.Component<IGroupFilterPanelProps, IGroupFilterPanelState> {
     public static contextType = MatrixClientContext;
     public context!: React.ContextType<typeof MatrixClientContext>;

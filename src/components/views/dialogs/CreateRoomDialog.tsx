@@ -25,7 +25,6 @@ import { _t } from '../../../languageHandler';
 import { MatrixClientPeg } from '../../../MatrixClientPeg';
 import { IOpts, privateShouldBeEncrypted } from "../../../createRoom";
 import { CommunityPrototypeStore } from "../../../stores/CommunityPrototypeStore";
-import { replaceableComponent } from "../../../utils/replaceableComponent";
 import Field from "../elements/Field";
 import RoomAliasField from "../elements/RoomAliasField";
 import LabelledToggleSwitch from "../elements/LabelledToggleSwitch";
@@ -57,7 +56,6 @@ interface IState {
     canChangeEncryption: boolean;
 }
 
-@replaceableComponent("views.dialogs.CreateRoomDialog")
 export default class CreateRoomDialog extends React.Component<IProps, IState> {
     private readonly supportsRestricted: boolean;
     private nameField = createRef<Field>();

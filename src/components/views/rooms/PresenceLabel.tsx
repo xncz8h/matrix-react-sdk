@@ -17,7 +17,6 @@ limitations under the License.
 import React from 'react';
 
 import { _t } from '../../../languageHandler';
-import { replaceableComponent } from "../../../utils/replaceableComponent";
 
 interface IProps {
     // number of milliseconds ago this user was last active.
@@ -30,7 +29,6 @@ interface IProps {
     presenceState?: string;
 }
 
-@replaceableComponent("views.rooms.PresenceLabel")
 export default class PresenceLabel extends React.Component<IProps> {
     static defaultProps = {
         activeAgo: -1,

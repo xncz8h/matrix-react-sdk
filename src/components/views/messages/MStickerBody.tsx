@@ -17,12 +17,10 @@ limitations under the License.
 import React from 'react';
 
 import MImageBody from './MImageBody';
-import { replaceableComponent } from "../../../utils/replaceableComponent";
 import { BLURHASH_FIELD } from "../../../ContentMessages";
 import Tooltip from "../elements/Tooltip";
 import ShowStickersSvg from '../../../../res/img/icons-show-stickers.svg';
 
-@replaceableComponent("views.messages.MStickerBody")
 export default class MStickerBody extends MImageBody {
     // Mostly empty to prevent default behaviour of MImageBody
     protected onClick = (ev: React.MouseEvent) => {

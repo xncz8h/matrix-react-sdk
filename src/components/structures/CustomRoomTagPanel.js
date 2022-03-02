@@ -22,9 +22,7 @@ import AutoHideScrollbar from './AutoHideScrollbar';
 import * as sdk from '../../index';
 import dis from '../../dispatcher/dispatcher';
 import * as FormattingUtils from '../../utils/FormattingUtils';
-import { replaceableComponent } from "../../utils/replaceableComponent";
 
-@replaceableComponent("structures.CustomRoomTagPanel")
 class CustomRoomTagPanel extends React.Component {
     constructor(props) {
         super(props);

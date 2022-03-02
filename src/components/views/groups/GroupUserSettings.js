@@ -20,9 +20,7 @@ import { logger } from "matrix-js-sdk/src/logger";
 import * as sdk from '../../../index';
 import { _t } from '../../../languageHandler';
 import MatrixClientContext from "../../../contexts/MatrixClientContext";
-import { replaceableComponent } from "../../../utils/replaceableComponent";
 
-@replaceableComponent("views.groups.GroupUserSettings")
 export default class GroupUserSettings extends React.Component {
     static contextType = MatrixClientContext;
 

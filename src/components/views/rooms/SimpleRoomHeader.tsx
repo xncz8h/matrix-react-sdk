@@ -16,7 +16,6 @@ limitations under the License.
 
 import React from 'react';
 
-import { replaceableComponent } from "../../../utils/replaceableComponent";
 
 interface IProps {
     title?: string;
@@ -28,7 +27,6 @@ interface IProps {
  * A stripped-down room header used for things like the user settings
  * and room directory.
  */
-@replaceableComponent("views.rooms.SimpleRoomHeader")
 export default class SimpleRoomHeader extends React.PureComponent<IProps> {
     public render(): JSX.Element {
         let icon;

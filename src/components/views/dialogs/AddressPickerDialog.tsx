@@ -31,7 +31,6 @@ import IdentityAuthClient from '../../../IdentityAuthClient';
 import { getDefaultIdentityServerUrl, useDefaultIdentityServer } from '../../../utils/IdentityServerUtils';
 import { abbreviateUrl } from '../../../utils/UrlUtils';
 import { Action } from "../../../dispatcher/actions";
-import { replaceableComponent } from "../../../utils/replaceableComponent";
 import AddressSelector from '../elements/AddressSelector';
 import AddressTile from '../elements/AddressTile';
 import BaseDialog from "./BaseDialog";
@@ -99,7 +98,6 @@ interface IState {
     validAddressTypes: AddressType[];
 }
 
-@replaceableComponent("views.dialogs.AddressPickerDialog")
 export default class AddressPickerDialog extends React.Component<IProps, IState> {
     private textinput = createRef<HTMLTextAreaElement>();
     private addressSelector = createRef<AddressSelector>();

@@ -30,7 +30,6 @@ import { isContentActionable, canEditContent, editEvent } from '../../../utils/E
 import RoomContext, { TimelineRenderingType } from "../../../contexts/RoomContext";
 import Toolbar from "../../../accessibility/Toolbar";
 import { RovingAccessibleTooltipButton, useRovingTabIndex } from "../../../accessibility/RovingTabIndex";
-import { replaceableComponent } from "../../../utils/replaceableComponent";
 import MessageContextMenu, { canCancel } from "../context_menus/MessageContextMenu";
 import Resend from "../../../Resend";
 import { MatrixClientPeg } from "../../../MatrixClientPeg";
@@ -169,7 +168,6 @@ interface IMessageActionBarProps {
     ) => Relations;
 }
 
-@replaceableComponent("views.messages.MessageActionBar")
 export default class MessageActionBar extends React.PureComponent<IMessageActionBarProps> {
     public static contextType = RoomContext;
 

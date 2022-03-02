@@ -21,10 +21,8 @@ import * as sdk from '../../../index';
 import dis from '../../../dispatcher/dispatcher';
 import { GroupRoomType } from '../../../groups';
 import MatrixClientContext from "../../../contexts/MatrixClientContext";
-import { replaceableComponent } from "../../../utils/replaceableComponent";
 import { mediaFromMxc } from "../../../customisations/Media";
 
-@replaceableComponent("views.groups.GroupRoomTile")
 class GroupRoomTile extends React.Component {
     static propTypes = {
         groupId: PropTypes.string.isRequired,

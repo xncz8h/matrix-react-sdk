@@ -16,7 +16,6 @@
 
 import React from 'react';
 
-import { replaceableComponent } from "../../../utils/replaceableComponent";
 
 interface IProps {
     reason?: string;
@@ -27,7 +26,6 @@ interface IState {
     visible: boolean;
 }
 
-@replaceableComponent("views.elements.Spoiler")
 export default class Spoiler extends React.Component<IProps, IState> {
     constructor(props: IProps) {
         super(props);

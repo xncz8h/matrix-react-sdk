@@ -19,7 +19,6 @@ import React from 'react';
 import dis from '../../../dispatcher/dispatcher';
 import { _t } from '../../../languageHandler';
 import { MatrixClientPeg } from '../../../MatrixClientPeg';
-import { replaceableComponent } from "../../../utils/replaceableComponent";
 import BaseDialog from "./BaseDialog";
 import Spinner from "../elements/Spinner";
 
@@ -35,7 +34,6 @@ interface IState {
     createError: Error;
 }
 
-@replaceableComponent("views.dialogs.CreateGroupDialog")
 export default class CreateGroupDialog extends React.Component<IProps, IState> {
     public state = {
         groupName: '',

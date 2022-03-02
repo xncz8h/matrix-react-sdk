@@ -18,7 +18,6 @@ import React from 'react';
 import { ResizeMethod } from 'matrix-js-sdk/src/@types/partials';
 
 import BaseAvatar from './BaseAvatar';
-import { replaceableComponent } from "../../../utils/replaceableComponent";
 import { mediaFromMxc } from "../../../customisations/Media";
 
 export interface IProps {
@@ -31,7 +30,6 @@ export interface IProps {
         onClick?: React.MouseEventHandler;
 }
 
-@replaceableComponent("views.avatars.GroupAvatar")
 export default class GroupAvatar extends React.Component<IProps> {
     public static defaultProps = {
         width: 36,

@@ -32,7 +32,6 @@ import { inviteMultipleToRoom, showAnyInviteErrors } from "../../../RoomInvite";
 import StyledCheckbox from "../elements/StyledCheckbox";
 import Modal from "../../../Modal";
 import ErrorDialog from "./ErrorDialog";
-import { replaceableComponent } from "../../../utils/replaceableComponent";
 import { mediaFromMxc } from "../../../customisations/Media";
 
 interface IProps extends IDialogProps {
@@ -55,7 +54,6 @@ interface IState {
     busy: boolean;
 }
 
-@replaceableComponent("views.dialogs.CommunityPrototypeInviteDialog")
 export default class CommunityPrototypeInviteDialog extends React.PureComponent<IProps, IState> {
     constructor(props: IProps) {
         super(props);

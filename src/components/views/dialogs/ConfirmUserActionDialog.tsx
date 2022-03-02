@@ -21,7 +21,6 @@ import classNames from "classnames";
 
 import { _t } from '../../../languageHandler';
 import { GroupMemberType } from '../../../groups';
-import { replaceableComponent } from "../../../utils/replaceableComponent";
 import { mediaFromMxc } from "../../../customisations/Media";
 import MemberAvatar from '../avatars/MemberAvatar';
 import BaseAvatar from '../avatars/BaseAvatar';
@@ -63,7 +62,6 @@ interface IState {
  * to make it obvious what is going to happen.
  * Also tweaks the style for 'dangerous' actions (albeit only with colour)
  */
-@replaceableComponent("views.dialogs.ConfirmUserActionDialog")
 export default class ConfirmUserActionDialog extends React.Component<IProps, IState> {
     static defaultProps = {
         danger: false,

@@ -32,7 +32,6 @@ import FlairUserSettingsTab from "../settings/tabs/user/FlairUserSettingsTab";
 import SdkConfig from "../../../SdkConfig";
 import MjolnirUserSettingsTab from "../settings/tabs/user/MjolnirUserSettingsTab";
 import { UIFeature } from "../../../settings/UIFeature";
-import { replaceableComponent } from "../../../utils/replaceableComponent";
 import BaseDialog from "./BaseDialog";
 import { IDialogProps } from "./IDialogProps";
 import SidebarUserSettingsTab from "../settings/tabs/user/SidebarUserSettingsTab";
@@ -61,7 +60,6 @@ interface IState {
     mjolnirEnabled: boolean;
 }
 
-@replaceableComponent("views.dialogs.UserSettingsDialog")
 export default class UserSettingsDialog extends React.Component<IProps, IState> {
     private mjolnirWatcher: string;
 

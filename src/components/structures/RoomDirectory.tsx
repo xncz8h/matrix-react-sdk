@@ -34,7 +34,6 @@ import SettingsStore from "../../settings/SettingsStore";
 import GroupFilterOrderStore from "../../stores/GroupFilterOrderStore";
 import GroupStore from "../../stores/GroupStore";
 import FlairStore from "../../stores/FlairStore";
-import { replaceableComponent } from "../../utils/replaceableComponent";
 import { mediaFromMxc } from "../../customisations/Media";
 import { IDialogProps } from "../views/dialogs/IDialogProps";
 import AccessibleButton, { ButtonEvent } from "../views/elements/AccessibleButton";
@@ -76,7 +75,6 @@ interface IState {
     communityName?: string;
 }
 
-@replaceableComponent("structures.RoomDirectory")
 export default class RoomDirectory extends React.Component<IProps, IState> {
     private readonly startTime: number;
     private unmounted = false;
