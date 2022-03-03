@@ -30,7 +30,7 @@ import { formatFullDateNoDayNoTime, wantsDateSeparator } from "../../DateUtils";
 import { RoomPermalinkCreator } from "../permalinks/Permalinks";
 import { _t } from "../../languageHandler";
 import * as Avatar from "../../Avatar";
-import EventTile, { haveTileForEvent } from "../../components/views/rooms/EventTile";
+import EventTile from "../../components/views/rooms/EventTile";
 import DateSeparator from "../../components/views/messages/DateSeparator";
 import BaseAvatar from "../../components/views/avatars/BaseAvatar";
 import { ExportType } from "./exportUtils";
@@ -40,6 +40,7 @@ import getExportCSS from "./exportCSS";
 import { textForEvent } from "../../TextForEvent";
 
 import exportJS from "!!raw-loader!./exportJS";
+import { haveRendererForEvent } from "../../events/EventTileFactory";
 
 export default class HTMLExporter extends Exporter {
     protected avatars: Map<string, boolean>;
@@ -404,7 +405,7 @@ export default class HTMLExporter extends Exporter {
                 total: events.length,
             }), false, true);
             if (this.cancelled) return this.cleanUp();
-            if (!haveTileForEvent(event)) continue;
+            if (!haveRendererForEvent(event)) continue;
 
             content += this.needsDateSeparator(event, prevEvent) ? this.getDateSeparator(event) : "";
             const shouldBeJoined = !this.needsDateSeparator(event, prevEvent)
